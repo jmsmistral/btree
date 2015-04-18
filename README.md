@@ -7,10 +7,10 @@ I wrote this library as I wasn't able to find any 'easy-to-learn' code on Btrees
 ### How do I get set up? ###
 
 To compile, run **make** in the 'tests' folder. This will compile the 'btree_test.c' file that uses the library to show how to:
-   * Create & populate a Btree
-   * Print the values in a Btree
-   * Search a Btree for a key
-   * Delete a key from a Btree
+*  Create & populate a Btree
+*  Print the values in a Btree
+*  Search a Btree for a key
+*  Delete a key from a Btree
 
 ### Who do I talk to? ###
 
