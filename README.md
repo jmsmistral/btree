@@ -60,21 +60,13 @@ Level 2: node = [67,68,69,70,71,72,73,74,]
 
 **test: Searching for keyValue = 19
 **test: searchKey allocated...
-btreeSearch: i = 0
-btreeSearch: i = 3
-btreeSearch: i = 0
 key found!
 keyValue = 19
 dataOffset = 69
 dataLength = 69
 
 **test: Deleting keyValue = 19
-btreeSearch: i = 0
-btreeSearch: i = 3
-btreeSearch: i = 0
-btreeSearch: i = 0
-btreeSearch: i = 3
-btreeSearch: i = 0
+**test: Searching for keyValue = 19
 key not found!
 
 **test: Printing Btree
@@ -94,7 +86,7 @@ Level 2: node = [55,56,57,58,59,]
 Level 2: node = [61,62,63,64,65,]
 Level 2: node = [67,68,69,70,71,72,73,74,]
 
-**test: Finshed
+**test: Finished
 ```
 
 The test program shows how to:
