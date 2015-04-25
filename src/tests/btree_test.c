@@ -64,11 +64,14 @@ int main (int argc, char* argv[]) {
       printf("dataOffset = %lu\n", resultKey->dataOffset);
       printf("dataLength = %lu\n", resultKey->dataLength);
     }
+    else
+      printf("key not found!\n");
 
     /* TEST 4: DELETE KEY FROM BTREE  */
     printf("\n**test: Deleting keyValue = 19\n");
     btreeDelete(btree, 19);
 
+    printf("**test: Searching for keyValue = 19\n");
     if( (resultKey = (BTreeKey*) btreeSearch(btree, btree->root, 19)) != NULL) {
       printf("key found!\n");
       printf("keyValue = %lu\n", resultKey->keyValue);
@@ -83,7 +86,7 @@ int main (int argc, char* argv[]) {
 
     btreeFree(&btree);
 
-    printf("\n**test: Finshed\n\n");
+    printf("\n**test: Finished\n\n");
 
 
     return 0;

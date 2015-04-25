@@ -274,7 +274,7 @@ BTreeKey* btreeSearch(
    int i;
    debug_print("btreeSearch: node->numkeys = %u\n", node->numKeys);
    for(i = 0; (i <= node->numKeys - 1) && (keyValue > node->key[i].keyValue ); i++);
-   printf("btreeSearch: i = %d\n", i);
+   debug_print("btreeSearch: i = %d\n", i);
    if((i <= node->numKeys - 1) && (keyValue == node->key[i].keyValue) && (!node->key[i].isUnlinked)) {
       debug_print("btreeSearch: key found\n");
       return (BTreeKey*) &node->key[i];
