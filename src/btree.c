@@ -358,12 +358,6 @@ int btreeInsertNonFull(
         
         x->key[i+1] = *key;
         x->numKeys++, btree->numKeys++;
-        //btreeWriteNode(x); // overwrite node with updated key
-        //btreePrintNode(x, "x");
-        /* if(btree->numNodes > 1) {
-            btreeNodeFree(&x); // free node x
-            assert(x == NULL);
-        } */
         
         return 0;
     }
@@ -376,20 +370,12 @@ int btreeInsertNonFull(
         
         
         BTreeNode* child = (BTreeNode*) x->childPtr[i];
-        //y = btreeNodeAlloc();
-        //y = btreeReadNode(x->child[i]);
-
-        /* if(y->numKeys == MAX_KEYS) {
-            btreeSplitChild(btree, x, i, y);
-            if(key->keyValue > x->key[i].keyValue)
-                i++;
-        } */
 
         if(child->numKeys == MAX_KEYS) {
             debug_print("btreeInsertNonFull: child is full, splitting child...\n");
             btreeSplitChild(btree, x, i, child);
             btree->numNodes++; // only increment one in this case
-            //btreeTraverse(btree);
+
             if(key->keyValue > x->key[i].keyValue) {
                 i++;
                 child = x->childPtr[i];
@@ -457,8 +443,8 @@ int btreeSplitChild(
 
 
 
-        /*TODO DEBUG */
-        /* printf("btreeSplitChild: x = [");
+        /* Uncomment to print child splitting steps */
+        /*printf("btreeSplitChild: x = [");
         int lo;
         for(lo=0; lo<x->numKeys; lo++) {
             printf("%lu,", x->key[lo].keyValue);

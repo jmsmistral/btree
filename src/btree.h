@@ -29,13 +29,13 @@
 /**
  ** Implementation limits
  **/
-#define MIN_DEGREE 512 /* defines the upper and lower bounds of a btree (see p434 Intro to Algorithms, Cormen et al.) */
+#define MIN_DEGREE 6 /* defines the upper and lower bounds of a btree (see p434 Intro to Algorithms, Cormen et al.) */
 #define MIN_KEYS MIN_DEGREE-1
 #define MAX_KEYS (2*MIN_DEGREE)-1
 #define MIN_CHILDREN MIN_DEGREE
 #define MAX_CHILDREN 2*MIN_DEGREE
 
-#define BTREE_NODE_SIZE 32752 /* Given t=512: (BTreeKey * 1023) + (off_t * 1024) + (unsigned int * 2) */
+#define BTREE_NODE_SIZE 456 /* Given MIN_DEGREE=6: (BTreeKey * 11) + (off_t * 12) + (unsigned int * 2) */
 
 #define LEAF_TRUE 1
 #define LEAF_FALSE 0
@@ -75,7 +75,6 @@ typedef struct {
     BTreeNode* root;
 
     off_t rootNodeOffset;
-    //off_t nextFreeNodeOffset; /* jms: tree_io will manage where to fit the next btree node */
     unsigned int numNodes; 
     unsigned int numKeys; 
 } BTree;
@@ -134,7 +133,6 @@ void btreeForEach(BTree* btree, queueNodeCallback callbackPtr);
 BTreeQueue* populateBTreeQueueBFS(BTree* btree);
 void setQueueNode(BTreeQueueNode*, BTreeNode*, BTreeNode*, unsigned int, unsigned int);
 void addQueueNode(BTreeQueue*, BTreeQueueNode*);
-//void btreeClearQueue(BTree* btree);
 void btreeSetKey(BTreeKey* key, off_t keyValue, off_t dataOffset, off_t dataLength);
 void btreePrintNode(BTreeNode* node, const char* label, const unsigned int visited);
 

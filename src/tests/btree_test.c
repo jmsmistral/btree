@@ -19,29 +19,10 @@ int main (int argc, char* argv[]) {
 
     printf("**test: Start\n");
 
-    // open test file for btree io tests
-    /*    int fd;
-    if((fd = open("/home/jonathan/dev/c/tree/src/tree_core/test.idx", ( O_WRONLY | O_CREAT | O_TRUNC ))) < 0) {
-        if(errno == ENOENT) {
-            printf("ERROR ENOENT\n");
-            if((fd = creat("/home/jonathan/dev/c/tree/src/tree_core/test.idx", 0)) < 0) {
-                printf("creat error!");
-                exit(-1);
-            }
-        }
-        else {
-            printf("open error!");
-            exit(-1);
-        }
-    } */
-
     /* Print data struct sizes */
     printf("\nPrint Sizes\n-----------\n");
     printf("MAX_KEYS = %d\n", MAX_KEYS);
     printf("MAX_CHILDREN = %d\n", MAX_CHILDREN);
-    printf("off_t = %lu bytes\n", sizeof(off_t));
-    printf("unsigned int = %lu bytes\n", sizeof(unsigned int));
-    printf("void* = %lu bytes\n", sizeof(void*));
     printf("BTree = %lu bytes\n", sizeof(BTree));
     printf("BTreeNode = %lu bytes\n", sizeof(BTreeNode));
     printf("BTreeKey = %lu bytes\n\n", sizeof(BTreeKey));
@@ -51,9 +32,9 @@ int main (int argc, char* argv[]) {
     BTreeKey* key = btreeKeyAlloc();
 
     off_t i;
-    for(i=1; i<25; i++) {
-      if(i==19)
-         btreeSetKeyValue(key, i, 69, 69);
+    for(i=1; i<75; i++) { // Insert 74 keys into Btree
+      if(i==19) // Used to test search below 
+         btreeSetKeyValue(key, i, 69, 69); // 69's here are offsets that can be used to index data in a file, for example
       else
          btreeSetKeyValue(key, i, 0, 0);
 
@@ -77,7 +58,7 @@ int main (int argc, char* argv[]) {
     BTreeKey* resultKey;
     printf("**test: searchKey allocated...\n");
 
-    if( (resultKey = (BTreeKey*) btreeSearch(btree, btree->root, 19)) != NULL) {
+    if( (resultKey = (BTreeKey*) btreeSearch(btree, btree->root, 19)) != NULL) { // To search for a key, pass the btree, ptr to root node, and key value
       printf("key found!\n");
       printf("keyValue = %lu\n", resultKey->keyValue);
       printf("dataOffset = %lu\n", resultKey->dataOffset);
@@ -102,7 +83,7 @@ int main (int argc, char* argv[]) {
 
     btreeFree(&btree);
 
-    printf("**test: Finshed\n\n");
+    printf("\n**test: Finshed\n\n");
 
 
     return 0;
