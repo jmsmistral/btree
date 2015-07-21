@@ -100,4 +100,3 @@ The test program shows how to:
 ### Questions ###
 
 If you have questions, feel free to email me at: jmsmistral@gmail.com
-I don't guarantee a reply! ;)
