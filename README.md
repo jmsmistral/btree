@@ -1,8 +1,8 @@
 # Btree #
 
-An Btree library in C based on Btree algorithm published in Introduction to Algorithms (2nd edition), Cormen et al. p434.
+A Btree library in C, based on the Btree algorithm published in Introduction to Algorithms (2nd edition), Cormen et al. p434.
 
-I wrote this library as I couldn't find any 'easy-to-learn' code on Btrees online. The idea isn't to make this code fast and efficient, but to have the basic Btree algorithms available that allows those interested to see how these can be implemented. I will be writing a blog post explaining the theory and walking through the key parts of the code - will post the link here :)
+I wrote this library as I couldn't find any 'easy-to-learn' code on Btrees on the web. The idea isn't to make this code fast and efficient, but to have the basic Btree algorithms available to allow those interested to see how these can be implemented.
 
 ### How do I get set up? ###
 
