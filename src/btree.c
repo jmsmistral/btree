@@ -271,6 +271,10 @@ BTreeKey* btreeSearch(
    ,off_t keyValue
 ) {
 
+	// Check if Btree is empty
+	if(!btree->numKeys)
+		return NULL;
+
    int i;
    debug_print("btreeSearch: node->numkeys = %u\n", node->numKeys);
    for(i = 0; (i <= node->numKeys - 1) && (keyValue > node->key[i].keyValue ); i++);
