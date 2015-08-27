@@ -77,11 +77,12 @@ BTreeKey* btreeKeyAlloc(void) {
  
     /* Allocate memory for the btree root node */
     debug_print("btreeKeyAlloc: Allocating memory for a btree key...\n");
-    if((key = malloc(sizeof(BTreeKey))) == NULL ) {
-        printf("btreeKeyAlloc: malloc error\n");
+    if((key = calloc(1, sizeof(BTreeKey))) == NULL ) {
+        printf("btreeKeyAlloc: calloc error\n");
         return NULL;
     }
 
+    key->isUnlinked = 0;
     key->keyValue = 0;
     key->dataOffset = 0;
     key->dataLength = 0;
