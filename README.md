@@ -9,9 +9,7 @@ I wrote this library as I couldn't find any 'easy-to-learn' code on Btrees on th
 To compile, run **make** in the 'tests' folder as follows:
 
 
-```
-#!bash
-
+```bash
 $ cd btree/src/tests
 $ make
 ```
@@ -19,18 +17,14 @@ $ make
 This will compile the 'btree_test.c' file that shows how to use the library. To run the test program do: 
 
 
-```
-#!bash
-
+```bash
 $ ./btree_test
 ```
 
 If you haven't done any modifications you should see the following output:
 
 
-```
-#!bash
-
+```bash
 **test: Start
 
 Print Sizes
